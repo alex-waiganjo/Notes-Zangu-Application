@@ -1,4 +1,4 @@
-# Notes Zangu Application
+# Notes Zangu App
 
 ## Project in Progress 🚧🚧
 
