@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Admin Page
+{% endblock %}
+
+{% block content %}
+<h3 style="text-align:center">Admin Panel</h3>
+<form action="" method="POST">
+    <div style="margin:1.5rem 0;background-color: rgb(3, 124, 164);padding: 1.5rem;" class="form-group">
+
+        <label style="font-weight: bolder;font-family:sans-serif;color:rgb(238, 222, 222)" for="email">Username **</label>
+        <input style="margin:1rem 0" type="text" class="form-control " name="admin-username" id="admin-username"
+            placeholder="Enter your Username..">
+        <label style="font-weight: bold;font-family:sans-serif;color:rgb(238, 222, 222)" for="pwd1">Password **</label>
+        <input style="margin:1rem 0" type="password" class="form-control" name="pwd" id="pwd"
+            placeholder="Enter your Password...">
+    </div>
+    <div class="d-flex justify-content-center">
+        <button style="padding:.8rem 1.5rem; font-weight: bold;" type="submit" class="btn btn-primary ">Submit</button>
+    </div>
+</form>
+{% endblock %}

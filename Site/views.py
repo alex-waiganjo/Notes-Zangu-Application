@@ -1,5 +1,5 @@
 import dataclasses
-from flask import Blueprint,render_template,request,flash,json,jsonify
+from flask import Blueprint,render_template,request,flash,json,jsonify,redirect,url_for
 from flask_login import current_user,login_required
 from .models import Notes,db
 
@@ -41,9 +41,29 @@ def Delete_note():
 
 
 #Admin Route In Progress
-@views.route('/Admin')
+@views.route('/Admin',methods=['POST','GET'])
 def Admin():
-  pass
+  if request.method=='POST':
+      username= request.form.get('admin-username')
+      pwd =request.form.get('pwd')
+      if username =='':
+        flash("Sorry Username cannot be Empty!!",category='error')
+      elif username<3:
+        flash("Username cannot be less than three characters!!",category='error')
+      elif pwd=='':
+          flash("Password cannot be  Empty!!",category='error')          
+      admin= Admin(username=username,pwd=pwd)
+      db.session.add(admin)
+      db.session.commit()
+      flash("Admin Login Successful!!",category='success')
+      return redirect(url_for('views.dashboard'))
+  
+
+@views.route('/Dashboard',methods=['POST','GET'])
+def Dashboard():
+  return "<h1>Building the dashboard page</h1>"
+       
+
 
 
 

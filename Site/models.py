@@ -19,4 +19,12 @@ class Users(db.Model,UserMixin):
     firstname = db.Column(db.String(20),unique=True)  
     password = db.Column(db.String(20),unique=True)
     user_notes =db.relationship('Notes')
+
+
+class Admin(db.Model,UserMixin):
+    __tablename__  ='admins' 
+    id= db.Column(db.Integer,primary_key=True)
+    username= db.Column(db.String(50))
+    password = db.Column(db.String(20),unique=True)
+   
     
